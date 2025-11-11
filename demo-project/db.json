@@ -1,0 +1,147 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "leanne@example.com",
+      "website": "hildegard.org",
+      "address": "Tel Aviv",
+      "phone": "050-1234567"
+    },
+    {
+      "id": "2",
+      "name": "Ervin Howell",
+      "username": "Antonette",
+      "email": "ervin@example.com",
+      "website": "anastasia.net",
+      "address": "Jerusalem",
+      "phone": "052-9876543"
+    },
+    {
+      "id": 3,
+      "username": "neta",
+      "email": "neta@neta",
+      "website": "neta",
+      "name": "neta",
+      "address": "",
+      "phone": ""
+    },
+    {
+      "id": 4,
+      "username": "sara",
+      "email": "sara@sara",
+      "website": "sara",
+      "name": "sara",
+      "address": "",
+      "phone": ""
+    }
+  ],
+  "todos": [
+    {
+      "id": "1",
+      "userId": 1,
+      "title": "Buy groceries",
+      "completed": false
+    },
+    {
+      "id": "2",
+      "userId": 1,
+      "title": "Finish project",
+      "completed": true
+    },
+    {
+      "id": "3",
+      "userId": 2,
+      "title": "Walk the dog",
+      "completed": false
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "userId": 1,
+      "title": "My first post",
+      "body": "Hello world!"
+    },
+    {
+      "id": "2",
+      "userId": 1,
+      "title": "React is awesome",
+      "body": "Hooks changed everything."
+    },
+    {
+      "id": "3",
+      "userId": 2,
+      "title": "Vacation plans",
+      "body": "I’m going to Eilat!"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "postId": 1,
+      "userId": 2,
+      "body": "Nice post!"
+    },
+    {
+      "id": "2",
+      "postId": 1,
+      "userId": 1,
+      "body": "Thank you!"
+    },
+    {
+      "id": "3",
+      "postId": 3,
+      "userId": 1,
+      "body": "Enjoy your trip!"
+    }
+  ],
+  "albums": [
+    {
+      "id": "1",
+      "userId": 1,
+      "title": "Family"
+    },
+    {
+      "id": "2",
+      "userId": 1,
+      "title": "Nature"
+    },
+    {
+      "id": "3",
+      "userId": 2,
+      "title": "Vacation"
+    }
+  ],
+  "photos": [
+    {
+      "id": "1",
+      "albumId": 1,
+      "title": "At the beach",
+      "url": "https://picsum.photos/id/101/600/400",
+      "thumbnailUrl": "https://picsum.photos/id/101/150/100"
+    },
+    {
+      "id": "2",
+      "albumId": 1,
+      "title": "Family dinner",
+      "url": "https://picsum.photos/id/102/600/400",
+      "thumbnailUrl": "https://picsum.photos/id/102/150/100"
+    },
+    {
+      "id": "3",
+      "albumId": 2,
+      "title": "Sunset",
+      "url": "https://picsum.photos/id/103/600/400",
+      "thumbnailUrl": "https://picsum.photos/id/103/150/100"
+    },
+    {
+      "id": "4",
+      "albumId": 3,
+      "title": "Mountains",
+      "url": "https://picsum.photos/id/104/600/400",
+      "thumbnailUrl": "https://picsum.photos/id/104/150/100"
+    }
+  ]
+}
