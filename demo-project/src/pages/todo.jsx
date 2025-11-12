@@ -6,12 +6,24 @@ export default function TodosPage() {
   const { user } = useContext(UserContext);
   const [todos, setTodos] = useState([]);
   const [newTitle, setNewTitle] = useState("");
+  const [filter, setFilter] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     if (user) {
       getTodosByUser(user.id).then(setTodos);
     }
   }, [user]);
+
+  const filteredTodos = todos
+    .filter((t) => t.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    .filter((t) =>
+      filter === "completed"
+        ? t.completed
+        : filter === "incomplete"
+        ? !t.completed
+        : true
+    );
 
   async function handleToggle(todo) {
     const updated = { ...todo, completed: !todo.completed };
@@ -39,8 +51,19 @@ export default function TodosPage() {
   return (
     <div>
       <h3>{user?.username}'s Todos</h3>
+      <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+        <option value="all">All</option>
+        <option value="completed">Completed</option>
+        <option value="incomplete">Incomplete</option>
+      </select>
+      <input
+        type="text"
+        placeholder="Search todos..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <ul>
-        {todos.map((t) => (
+        {filteredTodos.map((t) => (
           <li key={t.id}>
             <input
               type="checkbox"
@@ -48,7 +71,7 @@ export default function TodosPage() {
               onChange={() => handleToggle(t)}
             />{" "}
             {t.title}
-            <button onClick={() => handleDelete(t.id)}>-</button>{" "}
+            <button onClick={() => handleDelete(t.id)}>-</button>
           </li>
         ))}
       </ul>
