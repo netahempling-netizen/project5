@@ -1,6 +1,6 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
-import { getPhotoByAlbum } from "./api";
+import { getPhotosByAlbum, getPhotos } from "./api";
 
 export default function AlbumIndividualPage() {
   const { albumId } = useParams();
@@ -10,11 +10,10 @@ export default function AlbumIndividualPage() {
 
   useEffect(() => {
     async function fetchPhotos() {
-      const albumRes = await fetch(`http://localhost:3000/albums/${albumId}`);
-      const albumData = await albumRes.json();
+      const albumData = await getPhotos;
       setAlbumTitle(albumData.title);
 
-      const photosData = await getPhotoByAlbum(albumId);
+      const photosData = await getPhotosByAlbum(albumId);
       console.log("Photos Data", photosData);
       setPhotos(photosData);
     }

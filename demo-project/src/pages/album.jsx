@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import UserContext from "../context/user";
 import { getAlbumsByUser } from "./api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 export default function AlbumsPage() {
   const { user } = useContext(UserContext);

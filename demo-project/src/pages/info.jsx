@@ -54,7 +54,7 @@ export default function InfoPage() {
         <p>Address: {user.address}</p>
         <p>Phone:{user.phone}</p>
       </div>
-      <button onClick={handleDelete}></button>
+      <button onClick={handleDelete}>delete account</button>
     </div>
   );
 }
