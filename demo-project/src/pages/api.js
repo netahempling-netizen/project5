@@ -17,7 +17,7 @@
 //   const res = await fetch(`${BASE_URL2}/users/${userId}/albums`);
 //   return res.json();
 // }
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "http://localhost:3000";
 //users
 export async function getUsers() {
   const res = await fetch(`${BASE_URL}/users`);
@@ -97,26 +97,29 @@ export async function getCommentsByPost(postId) {
   return res.json();
 }
 
-export async function createComment(comment) {
+export async function createComment(newComment) {
   const res = await fetch(`${BASE_URL}/comments`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(comment),
+    body: JSON.stringify(newComment),
   });
   return res.json();
 }
 
-export async function updateComment(id, data) {
-  const res = await fetch(`${BASE_URL}/comments/${id}`, {
-    method: "PATCH",
+export async function updateComment(commentId, updatedComment) {
+  const res = await fetch(`${BASE_URL}/comments/${commentId}`, {
+    method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    body: JSON.stringify(updatedComment),
   });
   return res.json();
 }
 
-export async function deleteComment(id) {
-  await fetch(`${BASE_URL}/comments/${id}`, { method: "DELETE" });
+export async function deleteComment(commentId) {
+  const res = await fetch(`${BASE_URL}/comments/${commentId}`, {
+    method: "DELETE",
+  });
+  return res.json();
 }
 
 //albums
