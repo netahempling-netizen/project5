@@ -16,8 +16,6 @@ function RegisterPage() {
   async function handleRegister(e) {
     e.preventDefault();
     const users = await getUsers();
-    const nextId =
-      users.length > 0 ? Math.max(...users.map((u) => u.id)) + 1 : 1;
 
     if (password !== passwordConfirm) {
       setError("Passwords do not match");
@@ -25,7 +23,6 @@ function RegisterPage() {
     }
 
     const newUser = {
-      id: nextId,
       username: username,
       email: email,
       website: password,

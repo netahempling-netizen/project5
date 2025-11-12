@@ -19,20 +19,11 @@
       "phone": "052-9876543"
     },
     {
-      "id": 3,
+      "id": "c5e4",
       "username": "neta",
       "email": "neta@neta",
       "website": "neta",
       "name": "neta",
-      "address": "",
-      "phone": ""
-    },
-    {
-      "id": 4,
-      "username": "sara",
-      "email": "sara@sara",
-      "website": "sara",
-      "name": "sara",
       "address": "",
       "phone": ""
     }
@@ -55,6 +46,24 @@
       "userId": 2,
       "title": "Walk the dog",
       "completed": false
+    },
+    {
+      "id": "746b",
+      "userId": 3,
+      "title": "ride elephant",
+      "completed": false
+    },
+    {
+      "id": "a476",
+      "userId": "c5e4",
+      "title": "ride elephant",
+      "completed": true
+    },
+    {
+      "id": "0faa",
+      "userId": "c5e4",
+      "title": "eat breakfast",
+      "completed": false
     }
   ],
   "posts": [
@@ -74,7 +83,19 @@
       "id": "3",
       "userId": 2,
       "title": "Vacation plans",
-      "body": "I’m going to Eilat!"
+      "body": "Im going to Eilat!"
+    },
+    {
+      "id": "5038",
+      "userId": "c5e4",
+      "title": "so ",
+      "body": "what"
+    },
+    {
+      "id": "2ba9",
+      "userId": "c5e4",
+      "title": "hello",
+      "body": "darkness"
     }
   ],
   "comments": [
