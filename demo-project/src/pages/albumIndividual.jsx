@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
-import { getPhotosByAlbum, getPhotos, deletePhoto, createPhoto } from "./api";
+import { getPhotosByAlbum, createPhoto, deletePhoto } from "./api";
 
 export default function AlbumIndividualPage() {
   const { albumId } = useParams();
@@ -9,14 +9,12 @@ export default function AlbumIndividualPage() {
   const [albumTitle, setAlbumTitle] = useState("");
   const [newTitle, setNewTitle] = useState("");
   const [url, setUrl] = useState("");
+  const [visibleCount, setVisibleCount] = useState(5);
 
   useEffect(() => {
     async function fetchPhotos() {
-      const albumData = await getPhotos;
-      setAlbumTitle(albumData.title);
-
       const photosData = await getPhotosByAlbum(albumId);
-      console.log("Photos Data", photosData);
+      setAlbumTitle(`Album ${albumId}`);
       setPhotos(photosData);
     }
 
@@ -24,7 +22,8 @@ export default function AlbumIndividualPage() {
   }, [albumId]);
 
   async function handleAddPhoto() {
-    if (!newTitle.trim()) return alert("Please enter a photo url");
+    if (!newTitle.trim()) return alert("Please enter a photo title");
+    if (!url.trim()) return alert("Please enter a photo url");
 
     const newPhoto = {
       albumId: albumId,
@@ -33,33 +32,61 @@ export default function AlbumIndividualPage() {
       thumbnailUrl: url,
     };
 
-    const created = await createPhoto(newPhoto); // send to server
-    setPhotos((prev) => [...prev, created]); // update state
-    setNewTitle(""); // clear input
+    const created = await createPhoto(newPhoto);
+    setPhotos((prev) => [...prev, created]);
+    setNewTitle("");
     setUrl("");
   }
+
   async function handleDelete(photoId) {
     await deletePhoto(photoId);
     setPhotos((prev) => prev.filter((t) => t.id !== photoId));
   }
 
+  function handleLoadMore() {
+    setVisibleCount((prev) => prev + 5); // Show 5 more photos
+  }
+
+  const visiblePhotos = photos.slice(0, visibleCount);
+
   return (
     <div>
-      <button onClick={() => navigate("/home/albums")}> Back to Albums</button>
+      <button onClick={() => navigate("/home/albums")}>Back to Albums</button>
       <h2>{albumTitle}</h2>
+
       <div>
-        {photos.length > 0 ? (
-          photos.map((photo) => (
-            <div key={photo.id} style={{ textAlign: "center" }}>
+        {visiblePhotos.length > 0 ? (
+          visiblePhotos.map((photo) => (
+            <div
+              key={photo.id}
+              style={{ textAlign: "center", marginBottom: "10px" }}
+            >
               <p>{photo.title}</p>
-              <img src={photo.thumbnailUrl} alt={photo.title} />{" "}
-              <button onClick={() => handleDelete(photo.id)}>-</button>{" "}
+              <img
+                src={photo.thumbnailUrl}
+                alt={photo.title}
+                style={{ maxWidth: "150px" }}
+              />
+              <button
+                onClick={() => handleDelete(photo.id)}
+                style={{ marginLeft: "5px" }}
+              >
+                -
+              </button>
             </div>
           ))
         ) : (
           <p>No photos in this album</p>
         )}
-        <div>
+
+        {/* Load More button */}
+        {visibleCount < photos.length && (
+          <button onClick={handleLoadMore} style={{ marginTop: "10px" }}>
+            Load More
+          </button>
+        )}
+
+        <div style={{ marginTop: "20px" }}>
           <input
             placeholder="title"
             value={newTitle}
@@ -69,21 +96,13 @@ export default function AlbumIndividualPage() {
             placeholder="url"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
+            style={{ marginLeft: "5px" }}
           />
-          <button onClick={handleAddPhoto}>+</button>
+          <button onClick={handleAddPhoto} style={{ marginLeft: "5px" }}>
+            +
+          </button>
         </div>
       </div>
     </div>
   );
 }
-
-/* {photos.map((photo) => (
-          <div key={photo.id} style={{ textAlign: "center" }}>
-            <img src={photo.thumbnailUrl} alt={photo.title} />
-            <p>{photo.title}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-} */

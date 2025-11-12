@@ -50,7 +50,7 @@ export default function InfoPage() {
         <h2>{user.name}</h2>
         <p>Username: {user.username}</p>
         <p>Email: {user.email}</p>
-        <p>PAssword: *******</p>
+        <p>Password: ******</p>
         <p>Address: {user.address}</p>
         <p>Phone:{user.phone}</p>
       </div>
