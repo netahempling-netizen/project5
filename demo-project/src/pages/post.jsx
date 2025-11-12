@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import UserContext from "../context/user";
 import { getPostsByUser, createPost, deletePost } from "./api";
 
-export default function TodosPage() {
+export default function PostsPage() {
   const { user } = useContext(UserContext);
   const [posts, setPosts] = useState([]);
   const [newTitle, setNewTitle] = useState("");

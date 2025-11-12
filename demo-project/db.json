@@ -19,13 +19,31 @@
       "phone": "052-9876543"
     },
     {
-      "id": "c5e4",
+      "id": "3",
       "username": "neta",
       "email": "neta@neta",
       "website": "neta",
       "name": "neta",
       "address": "",
       "phone": ""
+    },
+    {
+      "id": "4",
+      "username": "sara",
+      "email": "sara@sara",
+      "website": "sara",
+      "name": "sara",
+      "address": "",
+      "phone": ""
+    },
+    {
+      "id": 5,
+      "username": "hey",
+      "email": "hey@y",
+      "website": "hey",
+      "name": "hey",
+      "address": "993 d",
+      "phone": "023849832"
     }
   ],
   "todos": [
@@ -95,7 +113,13 @@
       "id": "2ba9",
       "userId": "c5e4",
       "title": "hello",
-      "body": "darkness"
+      "body": "I’m going to Eilat!"
+    },
+    {
+      "id": "4",
+      "userId": 4,
+      "title": "test",
+      "body": "test"
     }
   ],
   "comments": [
@@ -116,6 +140,12 @@
       "postId": 3,
       "userId": 1,
       "body": "Enjoy your trip!"
+    },
+    {
+      "id": "4",
+      "postId": 4,
+      "userId": 4,
+      "body": "test Comment"
     }
   ],
   "albums": [
@@ -133,6 +163,16 @@
       "id": "3",
       "userId": 2,
       "title": "Vacation"
+    },
+    {
+      "id": "4",
+      "userId": 4,
+      "title":"album 1"
+    },
+        {
+      "id": "5",
+      "userId": 4,
+      "title":"album 2"
     }
   ],
   "photos": [
@@ -163,6 +203,27 @@
       "title": "Mountains",
       "url": "https://picsum.photos/id/104/600/400",
       "thumbnailUrl": "https://picsum.photos/id/104/150/100"
+    },
+      {
+      "id": "5",
+      "albumId": 4,
+      "title": "test",
+      "url": "https://picsum.photos/id/102/600/400",
+      "thumbnailUrl": "https://picsum.photos/id/102/150/100"
+    },
+        {
+      "id": "6",
+      "albumId": 5,
+      "title": "Test",
+      "url": "https://picsum.photos/id/102/600/400",
+      "thumbnailUrl": "https://picsum.photos/id/102/150/100"
+    },
+    {
+      "id": "7",
+      "albumId": 4,
+      "title": "Test",
+      "url": "https://picsum.photos/id/102/600/400",
+      "thumbnailUrl": "https://picsum.photos/id/102/150/100"
     }
   ]
 }
