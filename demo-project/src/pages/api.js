@@ -1,5 +1,5 @@
 // const BASE_URL = "https://jsonplaceholder.typicode.com";
-const BASE_URL2 = "http://localhost:3001";
+const BASE_URL2 = "http://localhost:3000";
 
 // export async function getUserByUsername(username) {
 //   const res = await fetch(`${BASE_URL2}/users?username=${username}`);
@@ -66,5 +66,15 @@ export async function updateUser(id, updatedUser) {
 
 export async function deleteUser(id) {
   const res = await fetch(`${BASE_URL2}/users/${id}`, { method: "DELETE" });
+  return res.json();
+}
+
+export async function getCommentsByPost(postId) {
+  const res = await fetch(`${BASE_URL2}/comments?postId=${postId}`);
+  return res.json();
+}
+
+export async function getPhotoByAlbum(albumId) {
+  const res = await fetch(`${BASE_URL2}/photos?albumId=${albumId}`);
   return res.json();
 }
