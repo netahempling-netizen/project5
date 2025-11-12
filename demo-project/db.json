@@ -85,6 +85,12 @@
       "userId": "4",
       "title": "walk outside",
       "completed": false
+    },
+    {
+      "id": "be30",
+      "userId": "4",
+      "title": "kdda",
+      "completed": true
     }
   ],
   "posts": [
@@ -117,12 +123,6 @@
       "userId": "c5e4",
       "title": "hello",
       "body": "I’m going to Eilat!"
-    },
-    {
-      "id": "4",
-      "userId": 4,
-      "title": "test",
-      "body": "test"
     }
   ],
   "comments": [
